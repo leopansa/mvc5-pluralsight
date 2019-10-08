@@ -11,10 +11,13 @@ namespace OdeToFood.Web.Controllers
     {
         IRestaurantData db; //Chp 2. Lesson 8 Temporary solution to access data.
 
-        public HomeController()
+        // Later here we are gonna use Dependency Injection and Inversion of Control Container 
+        // This uses the ContainerConfig Class and the AutoFac.Mvc Nuget package
+        public HomeController(IRestaurantData db)
         {
-            //Later here we are gonna use Dependency Injection
-            db = new InMemoryRestaurantData();
+            
+            this.db = db; //this is the Dependecy Injection made by AutoFac
+            //db = new InMemoryRestaurantData(); //Dependency Injection
         }
         public ActionResult Index()
         {
