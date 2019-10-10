@@ -17,7 +17,7 @@ namespace OdeToFood.Web.Controllers
         {
             
             this.db = db; //this is the Dependecy Injection made by AutoFac
-            //db = new InMemoryRestaurantData(); //Dependency Injection
+            //db = new InMemoryRestaurantData(); //Replace this with the Dependency Injection
         }
         public ActionResult Index()
         {
