@@ -9,7 +9,7 @@ namespace OdeToFood.Web.Controllers
 {
     public class RestaurantsController : Controller
     {
-        private readonly IRestaurantData db;
+        private readonly IRestaurantData db; 
 
         public RestaurantsController(IRestaurantData db)
         {
@@ -21,5 +21,17 @@ namespace OdeToFood.Web.Controllers
             var model = db.GetAll();
             return View(model);
         }
+
+
+        
+        public ActionResult Details(int id)
+        {
+            //id from the URL that is defined int the RouteConfig.cs
+            var model = db.Get(id);
+            return View(model);
+
+        }
+
+
     }
 }
