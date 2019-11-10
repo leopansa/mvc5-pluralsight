@@ -18,6 +18,10 @@ namespace OdeToFood.Web
                 name: "Default",
                 // /greeting/
                 url: "{controller}/{action}/{id}",
+                // Transform the Id segment of the URL
+                // To get the id section from a KEY that show the information inside from the QueryString.
+                // url: "{controller}/{action}/{key}", 
+                //defaults: new { controller = "Home", action = "Index", key  = UrlParameter.Optional }
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }

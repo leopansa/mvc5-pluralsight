@@ -28,10 +28,20 @@ namespace OdeToFood.Web.Controllers
         {
             //id from the URL that is defined int the RouteConfig.cs
             var model = db.Get(id);
-            return View(model);
+            if (model == null)
+            {
+                return View("NotFound");
+
+            } else
+            {
+                return View(model);
+            }
 
         }
 
-
+        public ActionResult Create()
+        {
+            return View();
+        }
     }
 }
