@@ -59,14 +59,13 @@ namespace OdeToFood.Web.Controllers
             {
                 ModelState.AddModelError(nameof(restaurant.Name), "The name is required!");
             }
-
+            */
             if(ModelState.IsValid)
             {
                 db.Add(restaurant);
                 return View();
             }
-            */
-
+            
             return View();
         }
     }
