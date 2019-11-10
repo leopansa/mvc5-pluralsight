@@ -63,10 +63,42 @@ namespace OdeToFood.Web.Controllers
             if(ModelState.IsValid)
             {
                 db.Add(restaurant);
-                return View();
+                // Post/Redirect/Get Web Pattern
+                return RedirectToAction("Details", new { id = restaurant.Id });
             }
             
             return View();
         }
+
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var model = db.Get(id);
+            if (model == null)
+            {
+                return View("NotFound");
+            }
+
+            return View(model);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Restaurant restaurant)
+        {
+            //model Binding -> Name + Cuisine = Restaurant
+
+            if (ModelState.IsValid)
+            {
+                db.Update(restaurant);
+                // Post/Redirect/Get Web Pattern
+                return RedirectToAction("Details", new { id = restaurant.Id });
+            }
+
+            return View();
+        }
+
     }
 }

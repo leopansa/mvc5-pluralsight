@@ -21,6 +21,21 @@ namespace OdeToFood.Data.Services
             };
         }
 
+
+        public void Update(Restaurant restaurant)
+        {
+
+            var existing = Get(restaurant.Id);
+            //existing is pointing to the current element inside the InMemoryRestaurants
+            if (existing != null)
+            {
+                //any changes here are save in the current Restaurant
+                existing.Name = restaurant.Name;
+                existing.Cuisine = restaurant.Cuisine;
+            }
+            
+        }
+
         public void Add(Restaurant restaurant)
         {
             restaurants.Add(restaurant);
