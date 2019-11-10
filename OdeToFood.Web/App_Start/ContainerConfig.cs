@@ -1,12 +1,12 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
-using Autofac.Integration.WebApi;
+using Autofac.Integration.WebApi; //nuget package
 using OdeToFood.Data.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Http;
+using System.Web.Http; //WebApi
 using System.Web.Mvc;
 
 // to follow the namespaces from the other files in App_Start
@@ -28,7 +28,8 @@ namespace OdeToFood.Web
                 .SingleInstance(); //this will never be use in real application because it would be only an one instance from all the users of the data.
 
             var container = builder.Build();
-            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+            
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container)); //mvc
             httpConfiguration.DependencyResolver = new AutofacWebApiDependencyResolver(container); //webApi
 
         }
