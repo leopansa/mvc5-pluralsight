@@ -1,4 +1,5 @@
-﻿using OdeToFood.Data.Services;
+﻿using OdeToFood.Data.Models;
+using OdeToFood.Data.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,8 @@ namespace OdeToFood.Web.Controllers
         {
             this.db = db;
         }
-        // GET: Restaurants
+
+        [HttpGet]
         public ActionResult Index()
         {
             var model = db.GetAll();
@@ -23,7 +25,7 @@ namespace OdeToFood.Web.Controllers
         }
 
 
-        
+        [HttpGet]
         public ActionResult Details(int id)
         {
             //id from the URL that is defined int the RouteConfig.cs
@@ -39,8 +41,32 @@ namespace OdeToFood.Web.Controllers
 
         }
 
+        [HttpGet]
         public ActionResult Create()
         {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Restaurant restaurant)
+        {
+            //model Binding -> Name + Cuisine = Restaurant
+            
+            //-- Validation inside the Controller from the View
+            /*
+            if(String.IsNullOrEmpty(restaurant.Name))
+            {
+                ModelState.AddModelError(nameof(restaurant.Name), "The name is required!");
+            }
+
+            if(ModelState.IsValid)
+            {
+                db.Add(restaurant);
+                return View();
+            }
+            */
+
             return View();
         }
     }
