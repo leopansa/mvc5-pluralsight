@@ -55,5 +55,15 @@ namespace OdeToFood.Data.Services
         }
 
 
+        public void Delete(int id)
+        {
+            var existing = Get(id);
+            //existing is pointing to the current element inside the InMemoryRestaurants
+            if (existing != null)
+            {
+                restaurants.Remove(existing);
+            }
+        }
+
     }
 }

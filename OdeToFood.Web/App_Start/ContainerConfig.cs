@@ -22,10 +22,12 @@ namespace OdeToFood.Web
             //MvcApplication is define in the class of Global.asax from the start point of the Application
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
             builder.RegisterApiControllers(typeof(MvcApplication).Assembly);
-            
-            builder.RegisterType<InMemoryRestaurantData>()
-                .As<IRestaurantData>()
-                .SingleInstance(); //this will never be use in real application because it would be only an one instance from all the users of the data.
+
+            //builder.RegisterType<InMemoryRestaurantData>()
+            builder.RegisterType<SqlRestaurantData>().As<IRestaurantData>()
+                .InstancePerRequest();
+            //.SingleInstance(); //this will never be use in real application because it would be only an one instance from all the users of the data.
+            builder.RegisterType<OdeToFoodDbContext>().InstancePerRequest();
 
             var container = builder.Build();
             
