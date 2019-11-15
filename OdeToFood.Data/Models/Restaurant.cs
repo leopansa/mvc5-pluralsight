@@ -13,9 +13,9 @@ namespace OdeToFood.Data.Models
         public int Id { get; set; }
 
         //DataAnnotation
-        [Required]
         //[Range(1,10)]
-
+        [Required]
+        [MaxLength(255)]
         public string Name { get; set; }
 
         [Display(Name="Type of food")]
