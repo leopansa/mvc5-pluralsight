@@ -35,8 +35,10 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
+        @ViewBag.Message
         <footer>
             <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            @RenderSection("footer", required: false)
         </footer>
     </div>
 

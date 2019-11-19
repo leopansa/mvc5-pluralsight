@@ -2,13 +2,25 @@
 
 @{
     ViewBag.Title = "Index";
+    ViewBag.Message = "Hello!";
+    //Layout = "_TestLayout.cshtml";
+    //Layout = null;
 }
 
 <h2>Index</h2>
 
+@* @Html.Raw() *@
+@* @Model.Count() *@
+
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+@* Tips Helpers *@
+@*scott@OdeToCode.com@(Model.Count())*@
+@*@@OdeToCode*@
+
 <table class="table">
     <tr>  
         <th>
@@ -18,6 +30,7 @@
     </tr>
 
 @foreach (var item in Model) {
+    //@:text
     <tr>
         <td>
             @* Html Helpers *@
@@ -32,3 +45,9 @@
 }
 
 </table>
+
+
+@section footer {
+    <div>This is a content footer...</div>
+    
+}
