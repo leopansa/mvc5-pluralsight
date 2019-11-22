@@ -94,6 +94,7 @@ namespace OdeToFood.Web.Controllers
             {
                 db.Update(restaurant);
                 // Post/Redirect/Get Web Pattern
+                TempData["Message"] = "You sucessfully edit the information about the Restaurant!";
                 return RedirectToAction("Details", new { id = restaurant.Id });
             }
 

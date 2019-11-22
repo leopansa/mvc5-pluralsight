@@ -33,12 +33,18 @@
         </div>
     </div>
     <div class="container body-content">
+        @if(TempData["Message"] != null)
+        {
+            <div class="alert alert-success">
+                @TempData["Message"]
+            </div>
+        }
         @RenderBody()
         <hr />
         @ViewBag.Message
         <footer>
             <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
-            @RenderSection("footer", required: false)
+            @RenderSection("footer", required:false)
         </footer>
     </div>
 
