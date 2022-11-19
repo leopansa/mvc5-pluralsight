@@ -28,7 +28,7 @@ namespace OdeToFood.Web.Controllers
         [HttpGet]
         public ActionResult Details(int id)
         {
-            //id from the URL that is defined int the RouteConfig.cs
+            //id from the URL that defined int the RouteConfig.cs
             var model = db.Get(id);
             if (model == null)
             {

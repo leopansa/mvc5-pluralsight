@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Details";
+    var Leo = ViewBag.Mensaje;
 }
 
 <h2>Details for @Html.DisplayFor(model => model.Name)</h2>
@@ -23,6 +24,7 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Cuisine)
+            @Leo
         </dd>
     </dl>
 </div>
